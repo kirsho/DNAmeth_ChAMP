@@ -39,18 +39,35 @@
 ##############################################################################
 # unmask required lines
 
-## In your /shared/projects/<PROJECT> folder upload "all_idat_atelier/" folder
+## In your /shared/projects/<PROJECT> folder upload "all_idat_atelier/" folder # les apprenants n'ont pas de projet a priori. J'ai tout fait dans un dossier à mon nom dans tp_tps_epic_dname_165656
 
 ## Workshop shared folder should be
-## /shared/projects/tp_tps_epic_dname_165656/<PROJECT>/
+## /shared/projects/tp_tps_epic_dname_165656/LearnerName/
 
-## Exemple on IFB rstudio
-### Path to directories
-Path2dir <- "/shared/projects/remeth/AtelierEPIC"
-Path2iDat <- "/shared/projects/remeth/AtelierEPIC/all_idat_atelier/"
+## Example on IFB rstudio
+### Create a learner folder in tp_tps_epic_dname_165656 project
+Path2TP <- "/shared/projects/tp_tps_epic_dname_165656"
+learner.folder <- "Mag_beta" # put your own name! 
+Path2dir <- file.path(Path2TP, learner.folder)
+print(Path2dir)
+dir.create(Path2dir)
+
+### Copy idat files to learner folder (make symlinks???)
+Path2iDat_tocopy <- file.path(Path2TP,"all_idat_atelier")
+print(Path2iDat_tocopy)
+### create idat folder
+Path2iDat <- file.path(Path2dir, "idat_files")
+dir.create(Path2iDat)
+print(Path2iDat)
+### list files to copy
+idat_files <- list.files(Path2iDat_tocopy)
+idat_files
+file.copy(from = paste0(Path2iDat_tocopy,"/", idat_files),   # Copy files
+          to = paste0(Path2iDat,"/", idat_files))
+list.files(Path2iDat)
 
 ### Path to metadata file
-PD <- "/shared/projects/remeth/AtelierEPIC/Pheno_WS.txt"
+PD <- file.path(Path2TP,"Pheno_WS.txt")
 
 
 #############################################################################
@@ -75,7 +92,7 @@ rstudioapi::filesPaneNavigate(Path2dir)
 ## Check ChAMP & ChAMPdata packages installation !!! MUST READ !!!
 ##############################################################################
 
-## Check that # ChAMP 1.29.1 & ChAMPdata 1.31.1 are installed
+## Check that # ChAMP 2.29.1 & ChAMPdata 2.31.1 are installed
 ### Explore Packages Panel (lower rightpanel)
 ### If not Follow instructions on ChAMP_Install.R script
 
@@ -240,7 +257,7 @@ write.table(ChAMP_f_pD_WS,
             sep=",")
 
 ### Check "idat" directory
-dir("./all_idat_atelier/")
+dir(Path2iDat)
 
 
 ### Load idat files
