@@ -15,7 +15,7 @@ These are R scripts to perform Illumina Infinium DNA methylationEPICv1 analysis 
 ## Day 1 DNMTs DKO vs WT HCT116 cells analysis  
 `INSERM_Workshop278_EPIC_J1_Cell.R`  
 
-## Day 2 DNMTs Sotos vs Healthy Blood samples analysis   
+## Day 2 Sotos vs Healthy Blood samples analysis   
 `INSERM_Workshop278_EPIC_J2_Blood.R`    
 
 # Data Set
