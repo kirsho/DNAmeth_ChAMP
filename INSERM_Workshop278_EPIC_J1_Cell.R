@@ -365,7 +365,6 @@ summary(methdata)
 boxplot(methdata,cex.axis = 0.8)
 
 #### Reset Plots panel
-rm(methdata) 
 dev.off()
 
 
