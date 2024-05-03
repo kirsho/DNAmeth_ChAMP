@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=_V8eKsto3Ug
 ## Day 1 DNMTs DKO vs WT HCT116 cells analysis  
 `INSERM_Workshop278_EPIC_J1_Cell.R`  
 
-## Day 2 Sotos vs Healthy Blood samples analysis   
+## Day 2 Sotos vs Healthy blood samples analysis   
 `INSERM_Workshop278_EPIC_J2_Blood.R`    
 
 # Data Set
