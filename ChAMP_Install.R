@@ -30,8 +30,8 @@
 
 # R version 4.1. to 4.1.3
 
-# ChAMP 1.29.1
-# ChAMPdata 1.31.1
+# ChAMP 2.29.1
+# ChAMPdata 2.31.1
 
 
 ##############################################################################
@@ -43,9 +43,11 @@
 
 ## Start an interactive Rsudio session
 ### R version: 4.1.1
+### Account: tp_tps_epic_dname_165656
 ### Number of CPUs: 6
 ### Amount of memory: 36G
 ### Number of GPUs: 0
+### Number of hours: 5
 
 ## Connect to Rstudio session
 
