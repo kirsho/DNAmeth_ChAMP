@@ -15,6 +15,11 @@ https://bioconductor.riken.jp/packages/3.10/bioc/vignettes/ChAMP/inst/doc/ChAMP.
 ChAMP on youtube  
 https://www.youtube.com/watch?v=Hw6j3ejB3dQ
 
+R : Learn the Basics   
+https://intro2r.com  
+https://www.youtube.com/watch?v=_V8eKsto3Ug  
+
+ 
 # R Scripts   
 ## Package installation   
 `ChAMP_Install.R`  
