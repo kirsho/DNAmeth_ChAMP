@@ -9,6 +9,11 @@
 These are R scripts to perform Illumina Infinium DNA methylationEPICv1 analysis with R-4.1.x and ChAMP 2.29.1 & ChAMPdata 2.31.1 packages  
 https://github.com/YuanTian1991/ChAMP
 
+Champ Vignette  
+https://bioconductor.riken.jp/packages/3.10/bioc/vignettes/ChAMP/inst/doc/ChAMP.html
+
+ChAMP on youtube  
+https://www.youtube.com/watch?v=Hw6j3ejB3dQ
 
 # R Scripts   
 ## Package installation   
