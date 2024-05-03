@@ -11,7 +11,7 @@
 # Add your comment and notes after a # mark
 # Unmarked lines are R commands 
 # Can be executed with Run button or with Ctrl + ENTER 
-# Allways check that the previous command is correctly executed and the prompt ( >) is ready
+# Always check that the previous command is correctly executed and the prompt ( >) is ready
 
 # A reminder to R 
 # https://intro2r.com
@@ -90,8 +90,6 @@ PD <- "/shared/projects/remeth/AtelierEPIC/Pheno_WS.txt"
 #############################################################################
 # Set working directory
 ############################################################################# 
-
-# https://intro2r.com/work-d.html
 
 # Check actual WD
 getwd()
