@@ -43,18 +43,20 @@
 
 ## Start an interactive Rsudio session
 ### R version: 4.1.1
+### Account: tp_tps_epic_dname_165656
 ### Number of CPUs: 6
 ### Amount of memory: 36G
 ### Number of GPUs: 0
+### Number of hours: 2? 3?
 
 ## Connect to Rstudio session
 
 ## Install Last ChAMP package version (Do not update anything)
 ### Install "ChAMP" # version 2.29.1
-devtools::install_github("YuanTian1991/ChAMP") # add , force = T if it's not working
+devtools::install_github("YuanTian1991/ChAMP") # add , force = T if it's not working (OK without force)
 # Click in the console & select nothing, press ENTER (no updates)
 
-# run if required & rerun previous line
+# run if required & rerun previous line (MH, not done)
 install.packages("mime")
 
 ### Install "ChAMPdata" # version 2.31.1
@@ -65,7 +67,7 @@ devtools::install_github("YuanTian1991/ChAMPdata")
 
 
 ##############################################################################
-# from scratch on your computer
+# from scratch on your computer (MH, not done)
 ##############################################################################
 ## Install R4.1.x
 ## Install Rtools
