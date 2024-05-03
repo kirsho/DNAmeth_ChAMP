@@ -432,7 +432,7 @@ myNorm_combat_Blood <- champ.runCombat(beta = myNorm_Blood,
 is(myNorm_combat_Blood)
 head(myNorm_combat_Blood)
 
-## Exploration of sample  Heterogeneity : requires an older version of ChAMP package
+## Exploration of sample cell Heterogeneity : requires an older version of ChAMP package
 
 ### Detach packages
 detach("package:ChAMP", unload = TRUE)
@@ -452,7 +452,7 @@ library(ChAMP,
 myRefBase <- champ.refbase(beta = myNorm_combat_Blood,
                            arraytype = "EPIC")
 
-myRefBase$Fraction
+myRefBase$CellFraction
 head(myRefBase$CorrectedBeta)
 dim(myRefBase$CorrectedBeta)
 
@@ -460,7 +460,7 @@ dim(myRefBase$CorrectedBeta)
 library(ggplot2) ### NECESSAIRE DE LE REMETTRE ???
 library(reshape2) ### NECESSAIRE DE LE REMETTRE ???
 
-df<-melt(myRefBase$Fraction)
+df<-melt(myRefBase$CellFraction)
 head(df)
 
 ggplot(df, aes(x=Var1, y=value, fill=Var2)) + 
