@@ -215,21 +215,21 @@ Sentrix_Position = unlist(lapply(basename(as.character(pD_EPIC_WS$Basename)),
 
 
 #### Reformat pD_WS, Change Colnames and some infos
-ChAMP_pD_WS <- data.frame(Sample_Name=pD_EPIC_WS$Sample_Name, 
-                          Sample_Plate=pD_EPIC_WS$Chips, 
-                          Sample_Group=pD_EPIC_WS$mutation,
-                          Sample_Group_2=pD_EPIC_WS$Sex,
-                          Sample_GSE_ID="",
-                          Sample_Status=pD_EPIC_WS$Sample_status,
-                          Mutation_Status=pD_EPIC_WS$Mutation_status,
-                          Pool_ID="",
-                          Project="",
-                          Sample_Well="",
-                          Sentrix_ID=Sentrix_ID,  
-                          Sentrix_Position=Sentrix_Position,
-                          Basename=pD_EPIC_WS$Basename,
-                          Tissue=pD_EPIC_WS$tissue,
-                          stringsAsFactors=F)
+ChAMP_pD_WS <- data.frame(Sample_Name = pD_EPIC_WS$Sample_Name, 
+                          Sample_Plate = pD_EPIC_WS$Chips, 
+                          Sample_Group = pD_EPIC_WS$mutation,
+                          Sample_Group_2 = pD_EPIC_WS$Sex,
+                          Sample_GSE_ID = "",
+                          Sample_Status = pD_EPIC_WS$Sample_status,
+                          Mutation_Status = pD_EPIC_WS$Mutation_status,
+                          Pool_ID = "",
+                          Project = "",
+                          Sample_Well = "",
+                          Sentrix_ID = Sentrix_ID,  
+                          Sentrix_Position = Sentrix_Position,
+                          Basename = pD_EPIC_WS$Basename,
+                          Tissue = pD_EPIC_WS$tissue,
+                          stringsAsFactors = F)
 
 #### Check entire updated object
 ChAMP_pD_WS
@@ -336,7 +336,7 @@ champ.QC(beta = myLoad_Cell$beta,
          PDFplot = TRUE,
          Rplot = TRUE,
          Feature.sel = "None",
-         resultsDir = "./CHAMP_QCimages/")
+         resultsDir = "./CHAMP_QCimages_Cell/")
 
 
 ### Explore graphs in Plots panel &/or in CHAMP_QCimages/ folder
@@ -364,7 +364,7 @@ dev.off()
 myNorm_Cell <-champ.norm(beta = myLoad_Cell$beta,
                          rgSet = myLoad$rgSet,
                          mset = myLoad$mset,
-                         resultsDir = "./CHAMP_Normalization/",
+                         resultsDir = "./CHAMP_Normalization_Cell/",
                          method = "BMIQ",  # ("PBC","BMIQ","SWAN")                  
                          plotBMIQ = TRUE,
                          arraytype = "EPICv1",
@@ -432,7 +432,7 @@ dev.off()
 
 
 #############################################################################
-# champ.SVD() / COMBAT
+# champ.SVD() / COMBAT  / REFBASE
 ############################################################################# 
 
 ## Champ Pipeline in a nutshell
@@ -444,15 +444,16 @@ dev.off()
 #champ.DMP()
 #champ.DMR()
 
-## Check metadata and $slide collumn
+## Check metadata and $slide column
 myLoad_Cell$pd
 
 ## SVD
 ### rename myNorm_Cell
 myNorm <- myNorm_Cell
 
-champ.SVD(beta=myNorm,
-          pd=myLoad_Cell$pd)
+champ.SVD(beta = myNorm,
+          pd = myLoad_Cell$pd,
+          resultsDir = "./CHAMP_SVDimages_Cell/")
 
 ### Explore graph
 
@@ -468,11 +469,11 @@ dev.off()
 ### Not always applicable
 ## Only one slide, not applicable here
 
-# myNorm_combat <- champ.runCombat(beta=myNorm_Cell,
+# myNorm_combat <- champ.runCombat(beta = myNorm_Cell,
 #                    pd=myLoad_Cell$pd,
-#                    variablename="Sample_Group",
-#                    batchname=c("Array"),
-#                    logitTrans=TRUE)
+#                    variablename = "Sample_Group",
+#                    batchname = c("Array"),
+#                    logitTrans = TRUE)
 
 
 
@@ -499,7 +500,7 @@ champ.QC(beta = myNorm_Cell,
          PDFplot = TRUE,
          Rplot = TRUE,
          Feature.sel = "None",
-         resultsDir = "./CHAMP_QCimages_Norm/")
+         resultsDir = "./CHAMP_QCimages_Norm_Cell/")
 
 
 ### Explore graphs in Plots panel &/or in CHAMP_QCimages_Norm folder
@@ -535,8 +536,8 @@ unique(myLoad_Cell$pd$Sample_Status)
 ## Call DMPs
 myDMP_CCL <- champ.DMP(beta = myNorm_Cell,
                        pheno = myLoad_Cell$pd$Sample_Status,
-                       compare.group = c("CCL_WT","CCL_DKO") 
-                       ,adjPVal = 0.05,
+                       compare.group = c("CCL_WT","CCL_DKO"), 
+                       adjPVal = 0.05,
                        adjust.method = "BH",
                        arraytype = "EPICv1")
 
@@ -587,11 +588,11 @@ dim(myDMP60_CCL)
 ## Volcano plot
 library(EnhancedVolcano)
 
-png("volcano_DMP.png",width = 250, height = 200, units='mm',res = 600)
+png("volcano_DMP_Cell.png",width = 250, height = 200, units='mm',res = 600)
 p_volc <- EnhancedVolcano(myDMP_CCL$CCL_WT_to_CCL_DKO,
-                          lab="",
-                          x="deltaBeta",
-                          y="adj.P.Val",
+                          lab = "",
+                          x = "deltaBeta",
+                          y = "adj.P.Val",
                           pCutoff = 0.01,
                           FCcutoff = 0.20,
                           xlim = c(-1,1), 
@@ -600,6 +601,7 @@ p_volc <- EnhancedVolcano(myDMP_CCL$CCL_WT_to_CCL_DKO,
                           legendLabels = c("NS","dBETA","p.adj < 0.05","p.adj < 0.01 & abs(dBeta) > 0.2"))
 p_volc
 dev.off()
+
 
 ## Look at the graph, comments.
 
