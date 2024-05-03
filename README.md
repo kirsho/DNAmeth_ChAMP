@@ -37,4 +37,10 @@ on IFB cluster
 ```
 
 
-Thanks : Magali Hennion (magali.hennion@u-paris.fr) for reviewing and comments
+Thanks : 
+Magali Hennion (magali.hennion@u-paris.fr) for reviewing and comments  
+BIBS plateform at EDC : https://parisepigenetics.github.io/bibs/  
+EDC : https://epigenetics.u-paris.fr/fr/accueil/  
+UP Cité : https://u-paris.fr/  
+INSERM : https://www.inserm.fr/  
+
