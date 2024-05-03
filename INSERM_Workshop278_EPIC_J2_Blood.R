@@ -11,7 +11,7 @@
 # Add your comment and notes after a # mark
 # Unmarked lines are R commands 
 # Can be executed with Run button or with Ctrl + ENTER 
-# Allways check that the previous command is correctly executed and the prompt ( >) is ready
+# Always check that the previous command is correctly executed and the prompt ( >) is ready
 
 # A reminder to R 
 # https://intro2r.com
@@ -26,31 +26,32 @@
 
 ## Start an interactive Rsudio session
 ### R version: 4.1.1
+### Account: tp_tps_epic_dname_165656
 ### Number of CPUs: 6
 ### Amount of memory: 36G
 ### Number of GPUs: 0
+### Number of hours: 3? 4?
 
 ## Connect to Rstudio session
 
-## Open an new Rscript
+## Open a new Rscript
 
 ##############################################################################
 # Set Path2Files & Directories
 ##############################################################################
-# unmask required lines
 
-## In your /shared/projects/<PROJECT> folder upload "all_idat_atelier/" folder
-
-## Workshop shared folder should be
-## /shared/projects/tp_tps_epic_dname_165656/<PROJECT>/
+## Workshop shared folder is
+## /shared/projects/tp_tps_epic_dname_165656/
+Path2TP <- "/shared/projects/tp_tps_epic_dname_165656"
 
 ## Exemple on IFB rstudio
 ### Path to directories
-Path2dir <- "/shared/projects/remeth/AtelierEPIC"
-Path2iDat <- "/shared/projects/remeth/AtelierEPIC/all_idat_atelier/"
+learner.folder <- "Mag_beta" # put your own name! 
+Path2dir <- file.path(Path2TP, learner.folder) ## created in the first session , see INSERM_Workshop278_EPIC_J1_Cell.R
+Path2iDat <- file.path(Path2dir, "idat_files") ## idat files were copied to your folder in the first session
 
 ### Path to metadata file
-PD <- "/shared/projects/remeth/AtelierEPIC/Pheno_WS.txt"
+PD <- file.path(Path2TP,"Pheno_WS.txt")
 
 
 #############################################################################
@@ -75,7 +76,7 @@ rstudioapi::filesPaneNavigate(Path2dir)
 ## Check ChAMP & ChAMPdata packages installation !!! MUST READ !!!
 ##############################################################################
 
-## Check that # ChAMP 1.29.1 & ChAMPdata 1.31.1 are installed
+## Check that # ChAMP 2.29.1 & ChAMPdata 2.31.1 are installed
 ### Explore Packages Panel (lower rightpanel)
 ### If not Follow instructions on ChAMP_Install.R script
 
@@ -218,13 +219,10 @@ ChAMP_pD_WS
 #champ.DMR()
 
 
-## DNA methylation analysis J1  : Blood Smaples -----------------------------------
-
-
-# !!!!!! Replace all Cell items by Blood !!!!!!
+## DNA methylation analysis J2  : Blood Samples -----------------------------------
 
 ### Filters ChAMP_CSV_WS
-### keeping all Tissue == Cell
+### keeping all Tissue == Blood
 
 ChAMP_f_pD_WS_blood <- subset(ChAMP_pD_WS,
                              Tissue == "Blood"& Mutation_Status %in% c("CTRL","MUT"))
@@ -237,13 +235,13 @@ ChAMP_f_pD_WS_blood
 ### Create csv file of pD define in Samples Selections, in directory of .idat files
 
 write.table(ChAMP_f_pD_WS_blood,
-            file = paste0(Path2iDat,"ChAMP_f_pD_WS_blood.csv"),
+            file = paste0(Path2iDat,"/ChAMP_f_pD_WS_blood.csv"),
             row.names = F,
             quote = F, 
             sep=",")
 
 ### Check "idat" directory
-dir("./all_idat_atelier/")
+dir(Path2iDat)
 
 
 ### Load idat files
