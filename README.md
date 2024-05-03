@@ -7,18 +7,6 @@
 - Laure Ferry : laure.ferry@u-paris.fr  
 
 These are R scripts to perform Illumina Infinium DNA methylationEPICv1 analysis with R-4.1.x and ChAMP 2.29.1 & ChAMPdata 2.31.1 packages  
-https://github.com/YuanTian1991/ChAMP
-
-Champ Vignette  
-https://bioconductor.riken.jp/packages/3.10/bioc/vignettes/ChAMP/inst/doc/ChAMP.html
-
-ChAMP on youtube  
-https://www.youtube.com/watch?v=Hw6j3ejB3dQ
-
-R : Learn the Basics   
-https://intro2r.com  
-https://www.youtube.com/watch?v=_V8eKsto3Ug  
-
  
 # R Scripts   
 ## Package installation   
@@ -36,11 +24,24 @@ on IFB cluster
 /shared/projects/tp_tps_epic_dname_165656
 ```
 
+# Link and ressources
+
+https://github.com/YuanTian1991/ChAMP
+
+* ChAMP Vignette  
+https://bioconductor.riken.jp/packages/3.10/bioc/vignettes/ChAMP/inst/doc/ChAMP.html
+
+* ChAMP on youtube  
+https://www.youtube.com/watch?v=Hw6j3ejB3dQ
+
+* R : Learn the Basics   
+https://intro2r.com  
+https://www.youtube.com/watch?v=_V8eKsto3Ug  
 
 Thanks :   
-Magali Hennion (magali.hennion@u-paris.fr) for reviewing and comments  
-BIBS plateform at EDC : https://parisepigenetics.github.io/bibs/  
-EDC : https://epigenetics.u-paris.fr/fr/accueil/  
-UP Cité : https://u-paris.fr/  
-INSERM : https://www.inserm.fr/  
+-Magali Hennion (magali.hennion@u-paris.fr) for reviewing and comments  
+- BIBS plateform at EDC : https://parisepigenetics.github.io/bibs/  
+- EDC : https://epigenetics.u-paris.fr/fr/accueil/  
+- UP Cité : https://u-paris.fr/  
+- INSERM : https://www.inserm.fr/  
 
