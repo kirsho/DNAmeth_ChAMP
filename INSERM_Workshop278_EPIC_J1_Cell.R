@@ -26,10 +26,12 @@
 
 ## Start an interactive Rsudio session
 ### R version: 4.1.1
+### Account: tp_tps_epic_dname_165656
 ### Number of CPUs: 6
 ### Amount of memory: 36G
 ### Number of GPUs: 0
-
+### Number of hours: 3? 4?
+ 
 ## Connect to Rstudio session
 
 ## Open an new Rscript
@@ -39,7 +41,7 @@
 ##############################################################################
 # unmask required lines
 
-## In your /shared/projects/<PROJECT> folder upload "all_idat_atelier/" folder # les apprenants n'ont pas de projet a priori. J'ai tout fait dans un dossier à mon nom dans tp_tps_epic_dname_165656
+## In your /shared/projects/<PROJECT> folder upload "all_idat_atelier/" folder [[[# les apprenants n'ont pas de projet a priori. J'ai tout fait dans un dossier à mon nom dans tp_tps_epic_dname_165656]]]
 
 ## Workshop shared folder should be
 ## /shared/projects/tp_tps_epic_dname_165656/LearnerName/
@@ -81,7 +83,7 @@ getwd()
 
 # Set WD if needed
 setwd(Path2dir)
-
+getwd()
 
 # Set Explorer panel to WD
 rstudioapi::filesPaneNavigate(Path2dir)
@@ -251,7 +253,7 @@ ChAMP_f_pD_WS
 ### Create csv file of pD define in Samples Selections, in directory of .idat files
 
 write.table(ChAMP_f_pD_WS,
-            file = paste0(Path2iDat,"ChAMP_f_pD_WS.csv"),
+            file = paste0(Path2iDat,"/ChAMP_f_pD_WS.csv"),
             row.names = F,
             quote = F, 
             sep=",")
@@ -296,7 +298,7 @@ myLoad_Cell$pd
 
 
 ### Remove .
-file.remove(paste0(Path2iDat, "ChAMP_f_pD_WS.csv"))
+file.remove(paste0(Path2iDat, "/ChAMP_f_pD_WS.csv"))
 
 
 #############################################################################
@@ -355,7 +357,7 @@ myNorm_Cell <-champ.norm(beta = myLoad_Cell$beta,
                          arraytype = "EPICv1",
                          cores = 5)   # use n-1 core (with n = reserved core)
 
-# Take some times (5 to 10').... ( annotate your code)  
+# It takes some time (5 to 10')... annotate your code.
 
 # Check myNorm_Cell object
 is(myNorm_Cell)
@@ -553,11 +555,12 @@ DELTAB <- 0.2
 
 myDMP20_CCL <- subset(myDMP_CCL$CCL_WT_to_CCL_DKO,
                     abs(myDMP_CCL$CCL_WT_to_CCL_DKO$deltaBeta)> DELTAB & myDMP_CCL$CCL_WT_to_CCL_DKO$adj.P.Val < FDR)
+  
+### All_DM Delta 60% & FDR < 1%
 
 FDR <- 0.01
 DELTAB <- 0.6
 
-### All_DM Delta 60% & FDR < 1%
 myDMP60_CCL <- subset(myDMP_CCL$CCL_WT_to_CCL_DKO,
                     abs(myDMP_CCL$CCL_WT_to_CCL_DKO$deltaBeta)> DELTAB & myDMP_CCL$CCL_WT_to_CCL_DKO$adj.P.Val < FDR)
 
