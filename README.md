@@ -6,7 +6,9 @@
 - Olivier Kirsh : olivier.kirsh@u-paris.fr  
 - Laure Ferry : laure.ferry@u-paris.fr  
 
-These are R scripts to perform Illumina Infinium DNA methylationEPICv1 analysis with R-4.1.x and ChAMP 1.29.1 & ChAMPdata 1.31.1 packages  
+These are R scripts to perform Illumina Infinium DNA methylationEPICv1 analysis with R-4.1.x and ChAMP 2.29.1 & ChAMPdata 2.31.1 packages  
+https://github.com/YuanTian1991/ChAMP
+
 
 # R Scripts   
 ## Package installation   
