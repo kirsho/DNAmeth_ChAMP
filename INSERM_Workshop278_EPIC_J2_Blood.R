@@ -38,6 +38,9 @@
 ##############################################################################
 # Set Path2Files & Directories
 ##############################################################################
+
+## Go to line 248 if you already runned the Cell analysis script
+
 ## Workshop shared folder should be
 ## /shared/projects/tp_tps_epic_dname_165656/LearnerName/
 
@@ -443,7 +446,7 @@ dev.off()
 
 
 #############################################################################
-# champ.SVD() / COMBAT
+# champ.SVD() / COMBAT  / REFBASE
 ############################################################################# 
 
 ## Champ Pipeline in a nutshell
@@ -470,6 +473,21 @@ myNorm_combat_Blood <- champ.runCombat(beta = myNorm_Blood,
 
 is(myNorm_combat_Blood)
 head(myNorm_combat_Blood)
+
+### SVD
+
+myNorm <- myNorm_combat_Blood
+
+champ.SVD(beta = myNorm,
+          pd = myLoad_Blood$pd,
+          resultsDir = "./CHAMP_SVDimages_Blood/")
+
+### Explore graph
+
+### reset Plots panel
+rm(myNorm)
+dev.off()
+                                 
 
 ## Exploration of sample cell Heterogeneity : requires an older version of ChAMP package
 
@@ -502,30 +520,12 @@ library(reshape2)
 df<-melt(myRefBase$CellFraction)
 head(df)
 
-ggplot(df, aes(x=Var1, y=value, fill=Var2)) + 
-  geom_bar(stat="identity") + 
+ggplot(df, aes(x = Var1, y = value, fill = Var2)) + 
+  geom_bar(stat = "identity") + 
   theme(axis.text.x = element_text(size = 6,angle=90,hjust=1))   
 
 
 dev.off()
-
-
-## Check metadata and $slide column
-myLoad_Blood$pd
-
-### SVD
-
-myNorm <- myNorm_combat_Blood
-
-champ.SVD(myNorm, pd = myLoad_Blood$pd)
-
-### Explore graph
-
-### reset Plots panel
-rm(myNorm)
-dev.off()
-
-
 
 
 #############################################################################
@@ -618,7 +618,7 @@ myDMP_Blood_ref <-champ.DMP(beta = myRefBase$CorrectedBeta,
 ## Volcano plot
 library(EnhancedVolcano)
 
-png("volcano_DMP_Blood.png",width = 250, height = 200, units='mm',res = 600)
+png("volcano_DMP_Blood.png",width = 250, height = 200, units = 'mm',res = 600)
 
 p_volc <- EnhancedVolcano(myDMP_Blood$healthy_to_Sotos,
                           x = "logFC",
@@ -630,9 +630,6 @@ p_volc <- EnhancedVolcano(myDMP_Blood$healthy_to_Sotos,
                           xlab = bquote(~Delta~"Beta"),
                           title = "DMP_Blood"
                           )
-# this arg is not working
-# legend = c("NS","dBETA","p.adj < 0.05","p.adj < 0.05 & abs(dBeta) > 0.2") no
-
 p_volc
 
 dev.off()
