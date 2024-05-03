@@ -81,7 +81,7 @@ rstudioapi::filesPaneNavigate(Path2dir)
 ### If not Follow instructions on ChAMP_Install.R script
 
 
-## Rename `probe.features.epic.rda` to `probe.features.epicv1.rda`
+## Rename `probe.features.epic.rda` to `probe.features.epicv1.rda` # should have be done in the 1st session
 ### This can be done "by hand"
 
 ### go in "/shared/home/<projectname>/R/x86_64-conda-linux-gnu-library/4.1/ChAMPdata/data"
@@ -265,12 +265,12 @@ myLoad_Blood <- champ.load(Path2iDat,
 
 
 
-# Explore myLoad_Cell
+# Explore myLoad_Blood
 myLoad_Blood
 is(myLoad_Blood)
 is(myLoad_Blood$beta)
 
-# View myLoad_Cell data
+# View myLoad_Blood data
 myLoad_Blood$beta
 myLoad_Blood$pd$Sample_Status
 
@@ -280,7 +280,7 @@ myLoad_Blood$pd
 
 
 ### Remove .
-file.remove(paste0(Path2iDat, "ChAMP_f_pD_WS_blood.csv"))
+file.remove(paste0(Path2iDat, "/ChAMP_f_pD_WS_blood.csv"))
 
 
 #############################################################################
@@ -339,7 +339,7 @@ myNorm_Blood <-champ.norm(beta = myLoad_Blood$beta,
                          arraytype = "EPICv1",
                          cores = 5)   # use n-1 core (with n = reserved core)
 
-# Take some times (5 to 10').... ( annotate your code)  
+# It takes some time (2 to 5')... annotate your code.   
 
 # Check myNorm_Blood object
 is(myNorm_Blood)
@@ -432,9 +432,9 @@ myNorm_combat_Blood <- champ.runCombat(beta = myNorm_Blood,
 is(myNorm_combat_Blood)
 head(myNorm_combat_Blood)
 
-## Exploration of sample cell Heterogeneity : requires an older version of ChAMP package
+## Exploration of sample  Heterogeneity : requires an older version of ChAMP package
 
-### Detach pacakges
+### Detach packages
 detach("package:ChAMP", unload = TRUE)
 detach("package:ChAMPdata", unload = TRUE)
 
@@ -452,15 +452,15 @@ library(ChAMP,
 myRefBase <- champ.refbase(beta = myNorm_combat_Blood,
                            arraytype = "EPIC")
 
-myRefBase$CellFraction
+myRefBase$Fraction
 head(myRefBase$CorrectedBeta)
 dim(myRefBase$CorrectedBeta)
 
 #write.table(myRefBase$CorrectedBeta,"beta_EPIC_Blood_Refbase.tsv", row.names=T, quote=F, sep="\t")
-library(ggplot2)
-library(reshape2)
+library(ggplot2) ### NECESSAIRE DE LE REMETTRE ???
+library(reshape2) ### NECESSAIRE DE LE REMETTRE ???
 
-df<-melt(myRefBase$CellFraction)
+df<-melt(myRefBase$Fraction)
 head(df)
 
 ggplot(df, aes(x=Var1, y=value, fill=Var2)) + 
@@ -502,7 +502,7 @@ dev.off()
 #champ.DMP()
 #champ.DMR()
 
-## QC plot with Normalization
+## QC plot with Normalization ### TITRE DU PLOT "before normalization" MODIFIABLE?
 champ.QC(beta = myRefBase$CorrectedBeta,
          pheno = myLoad_Blood$pd$Sample_Status,
          mdsPlot = TRUE,
@@ -573,7 +573,7 @@ myDMP_Blood_ref <-champ.DMP(beta = myRefBase$CorrectedBeta,
                             adjust.method = "BH",
                             arraytype = "EPIC")
 
-
+### NO DMP, expected??
 
 
 ## Volcano plot
@@ -615,7 +615,7 @@ dev.off()
 
 ## Calling DMR
 myDMR_Blood <- champ.DMR(beta = myNorm_Blood,
-                         pheno = myLoad_Cell$pd$Sample_Status,
+                         pheno = myLoad_Blood$pd$Sample_Status,
                          compare.group = c("healthy","Sotos"),
                          arraytype = "EPIC",
                          method = "Bumphunter",
