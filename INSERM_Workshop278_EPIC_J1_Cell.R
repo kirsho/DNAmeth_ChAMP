@@ -7,7 +7,7 @@
 # Olivier Kirsh : olivier.kirsh@u-paris.fr
 
 # This is a R script to perform Illumina Infinium DNA methylationEPICv1 analysis
-# with R-4.1.x and ChAMP 1.29.1 & ChAMPdata 1.31.1 packages
+# with R-4.1.x and ChAMP 2.29.1 & ChAMPdata 2.31.1 packages
 # Add your comment and notes after a # mark
 # Unmarked lines are R commands 
 # Can be executed with Run button or with Ctrl + ENTER 
