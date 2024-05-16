@@ -33,7 +33,15 @@ https://bioconductor.riken.jp/packages/3.10/bioc/vignettes/ChAMP/inst/doc/ChAMP.
 
 * R : Learn the Basics   
 https://intro2r.com  
-https://www.youtube.com/watch?v=_V8eKsto3Ug  
+https://www.youtube.com/watch?v=_V8eKsto3Ug
+
+* Good Practices in Bioinformatics - Software Carpentry  
+  https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/  
+
+* Some Stats Youtube channels  
+  https://www.youtube.com/@lastatistiqueexpliqueeamon4366
+  https://www.youtube.com/@statquest  
+  https://www.youtube.com/@3blue1brown  
 
 Thanks :   
 -Magali Hennion (magali.hennion@u-paris.fr) for reviewing and comments  
