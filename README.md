@@ -36,7 +36,10 @@ https://intro2r.com
 https://www.youtube.com/watch?v=_V8eKsto3Ug
 
 * Good Practices in Bioinformatics - Software Carpentry  
-  https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/  
+  https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/
+
+* Good Practices in R - Software Carpentry  
+ https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html 
 
 * Some Stats Youtube channels  
   https://www.youtube.com/@lastatistiqueexpliqueeamon4366  
