@@ -39,7 +39,7 @@ https://www.youtube.com/watch?v=_V8eKsto3Ug
   https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/  
 
 * Some Stats Youtube channels  
-  https://www.youtube.com/@lastatistiqueexpliqueeamon4366
+  https://www.youtube.com/@lastatistiqueexpliqueeamon4366  
   https://www.youtube.com/@statquest  
   https://www.youtube.com/@3blue1brown  
 
